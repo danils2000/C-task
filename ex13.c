@@ -14,11 +14,11 @@ void function() {
     while (fgets(line, 200, stdin) != "\0" && strcmp(line,".\n") != 0) {
 
         text = (char *) malloc(200 * sizeof(char));
-        sscanf(line, "%[^\n]s", text);
+        sscanf(line, "%s", text);
         fprintf(f, "%d:%s\n",strlen(text),text);
 
         if(text == "\0") {
-            printf("TRY AGAIN!!! FAULT");
+            printf("TRY AGAIN!!!");
         }
         free(text);
     }
@@ -27,7 +27,9 @@ void function() {
 }
 
 int main() {
-    
+
+    printf("User enters: ");
     function();
+
     return 0;
 }
