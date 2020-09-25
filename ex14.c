@@ -14,7 +14,7 @@ typedef struct chunk {
 chunk;
 
 
-void random_gen(char filename[]);
+void randomgen(char filename[]);
 void reading(char filename[], chunk *chunks);
 uint16_t crc16(const uint8_t* data_p, unsigned int length);
 
@@ -76,7 +76,7 @@ void reading(char filename[],chunk *c) {
       printf("Error in writning");
     } 
 
-    fclose(f); 
+  fclose(f); 
 }
 
 uint16_t crc16(const uint8_t* data_p, unsigned int length) {
@@ -92,8 +92,7 @@ uint16_t crc16(const uint8_t* data_p, unsigned int length) {
  return crc;
 }
 
-int main()
-{
+int main() {
     char filename[10];
     int number = 32;
     int i = 0;
@@ -103,15 +102,13 @@ int main()
     printf("File name(in .bin mode): ");
     scanf("%s",filename);
 
-    random(char *filename);
+    randomgen(filename);
     reading(filename, c);
 
-    //PRINT AS REQUESTED
     while ( c[i].size > 0 && i <= number) {
-        printf("%s: %-7d %s: %-7d %s: %.4X\n", "Chunk" ,i+1, "Bytes",  c[i].size, "CRC", crc16(c[i].data, c[i].size));
+        printf("%s: %-4d    %s: %d    %s: %.X\n", "Chunk" ,i+1, "Bytes",  c[i].size, "CRC", crc16(c[i].data, c[i].size));
         i++;
     }
 
-    free(c);
     return 0;
 }
