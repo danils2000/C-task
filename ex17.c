@@ -10,6 +10,10 @@ typedef struct car_struct {
     float emission;
 } car;
 
+void start_car_list(char *filename, car *cars);
+void All(char *filename);
+bool new_car(char *filename, car carNew);
+
 void start_car_list(char *filename, car *cars) {
     cars[0] = (car){.make = "Audi", .model = "a6", .price = 75000, .emission = 109.3};
     cars[1] = (car){.make = "BMW", .model = "5", .price = 75000, .emission = 112.6};
