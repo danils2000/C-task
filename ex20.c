@@ -4,9 +4,8 @@
 #include <time.h>
 
 void generator(char *pass, int length, const char *words[]);
+
 void generator(char *pass, int length, const char *words[]) {
-
-
     int i = 0;
     int random = 0, positon = 0;
 
